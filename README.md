@@ -1,2 +1,3 @@
-# hacktix.github.io
-hacktix - hackathon 
+# hacktix
+
+# accent color: 69B9E6

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Movie Ticket Checkout</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 40px;
+      }
+
+      th, td {
+        padding: 20px 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 1.2rem;
+        color: #333;
+        font-weight: 400;
+      }
+
+      .quantity {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 1.2rem;
+        color: #333;
+        font-weight: 400;
+      }
+
+      button {
+        padding: 15px 25px;
+        border: none;
+        background-color: #0077cc;
+        color: #fff;
+        cursor: pointer;
+        margin-right: 10px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.2s ease;
+      }
+
+      button:hover {
+        background-color: #005ca9;
+      }
+
+      .cancel {
+        background-color: #cc0000;
+      }
+
+      .cancel:hover {
+        background-color: #a30000;
+      }
+
+      .checkout {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+      <h1>MOVIE TICKET DETAILS</h1>
+
+
+      <table>
+        <tr>
+          <th>MOVIE</th>
+          <td>The Avengers</td>
+        </tr>
+        <tr>
+          <th>TIME</th>
+          <td>March 12, 2023 at 7:00 PM</td>
+        </tr>
+        <tr>
+          <th>QUANTITY</th>
+          <td>
+              <button class="decrease">-</button>
+              <span class="quantity">2</span>
+            <button class="increase">+</button>
+          </td>
+        </tr>
+        <tr>
+            <th>PRICE</th>
+            <td>Rp. 50,000</td>
+        </tr>
+        <tr>
+            <th>TOTAL PRICE</th>
+            <td id="total-price"></td>
+        </tr>
+      </table>
+
+      <button class="cancel">Cancel</button>
+      <button class="checkout">Continue to Payment</button>
+    </div>
+    <script>
+        let decreaseButton = document.querySelector(".decrease");
+        let increaseButton = document.querySelector(".increase");
+        let quantityEl = document.querySelector(".quantity");
+        let cancelButton = document.querySelector(".cancel");
+        let checkoutButton = document.querySelector(".checkout");
+      
+        let quantity = 2;
+        quantityEl.textContent = quantity;
+      
+        decreaseButton.addEventListener("click", () => {
+          if (quantity > 1) {
+            quantity--;
+            quantityEl.textContent = quantity;
+            calculateTotalPrice();
+          }
+        });
+      
+        increaseButton.addEventListener("click", () => {
+          quantity++;
+          quantityEl.textContent = quantity;
+          calculateTotalPrice();
+        });
+      
+        cancelButton.addEventListener("click", () => {
+          console.log("cancel button clicked");
+        });
+      
+        checkoutButton.addEventListener("click", () => {
+          console.log("checkout button clicked");
+        });
+      
+        let totalPriceEl = document.getElementById("total-price");
+        let price = 50000;
+      
+        function calculateTotalPrice() {
+          let totalPrice = quantity * price;
+          totalPriceEl.textContent = "Rp. " + totalPrice.toLocaleString();
+        }
+      
+        calculateTotalPrice();
+      </script>
+
+    </html>
