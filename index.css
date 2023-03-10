@@ -19,21 +19,27 @@ h2 {
     padding-top: 30px;
 }
 
-/* slideshow */
-.slideshow {
-    position: relative;
-    height: 400px;
-    margin-top: 14px;
-    margin-bottom: 10px;
-  }
 
-  .slideshow img {
-    position: absolute;
-    height: 400px;
-    left: 0;
-    top: 0;
-  }
+.slideshowwrap {
+        display:flex;
+        flex-flow: column;
+        width: 100px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        margin-top: 70px;
+        padding: 0px 65px 30px 65px;
+}
 
+.slideshow2 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.slideshow2 img {
+    max-width: 1000px;   
+    max-height: auto;
+}
   /* image grid */
   .flex-container {
     max-width: 80%;
